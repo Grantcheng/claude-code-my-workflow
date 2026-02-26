@@ -1,6 +1,6 @@
 # My Claude Code Setup
 
-> **Work in progress.** This is not meant to be a polished guide for everyone. It's mostly a summary of how I've been using Claude Code for academic work — creating lecture slides, writing R scripts, managing Beamer-to-Quarto workflows, and so on. I keep learning new things, and as I do, I keep updating these files. This is just a way for me to share what I've figured out with friends and colleagues.
+> **Work in progress.** This is a ready-to-fork starter kit for **FinTech education and research** using [Claude Code](https://code.claude.com/docs/en/overview) with **LaTeX/Beamer + Python + Quarto + FastAPI**. You describe what you want; Claude plans the approach, runs specialized agents, fixes issues, verifies quality, and presents results — like a contractor who handles the entire job. Extracted from a production academic workflow and adapted for AI-powered FinTech applications.
 
 **Live site:** [psantanna.com/claude-code-my-workflow](https://psantanna.com/claude-code-my-workflow/)
 **Last Updated:** 2026-02-15

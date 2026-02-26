@@ -5,8 +5,8 @@
      Keep this file under ~150 lines — Claude loads it every session.
      See the guide at docs/workflow-guide.html for full documentation. -->
 
-**Project:** [YOUR PROJECT NAME]
-**Institution:** [YOUR INSTITUTION]
+**Project:** AI-Powered FinTech Education & Research Assistant
+**Institution:** University FinTech Programs
 **Branch:** main
 
 ---
@@ -24,16 +24,21 @@
 ## Folder Structure
 
 ```
-[YOUR-PROJECT]/
+[FINTECH-PROJECT]/
 ├── CLAUDE.MD                    # This file
 ├── .claude/                     # Rules, skills, agents, hooks
 ├── Bibliography_base.bib        # Centralized bibliography
 ├── Figures/                     # Figures and images
 ├── Preambles/header.tex         # LaTeX headers
-├── Slides/                      # Beamer .tex files
+├── Lectures/                    # Beamer .tex files
 ├── Quarto/                      # RevealJS .qmd files + theme
 ├── docs/                        # GitHub Pages (auto-generated)
-├── scripts/                     # Utility scripts + R code
+├── scripts/                     # Utility scripts
+├── api/                         # FastAPI backend
+├── models/                      # ML models & training scripts
+├── data/                        # Datasets & preprocessing
+├── notebooks/                   # Jupyter notebooks
+├── vector_db/                   # Vector database indices
 ├── quality_reports/             # Plans, session logs, merge reports
 ├── explorations/                # Research sandbox (see rules)
 ├── templates/                   # Session log, quality report templates
@@ -46,7 +51,7 @@
 
 ```bash
 # LaTeX (3-pass, XeLaTeX only)
-cd Slides && TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode file.tex
+cd Lectures && TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode file.tex
 BIBINPUTS=..:$BIBINPUTS bibtex file
 TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode file.tex
 TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode file.tex
@@ -54,8 +59,13 @@ TEXINPUTS=../Preambles:$TEXINPUTS xelatex -interaction=nonstopmode file.tex
 # Deploy Quarto to GitHub Pages
 ./scripts/sync_to_docs.sh LectureN
 
+# Run FastAPI backend
+uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
+
 # Quality score
 python scripts/quality_score.py Quarto/file.qmd
+python scripts/quality_score.py api/*.py
+python scripts/quality_score.py models/*.py
 ```
 
 ---
@@ -80,7 +90,6 @@ python scripts/quality_score.py Quarto/file.qmd
 | `/proofread [file]` | Grammar/typo/overflow review |
 | `/visual-audit [file]` | Slide layout audit |
 | `/pedagogy-review [file]` | Narrative, notation, pacing review |
-| `/review-r [file]` | R code quality review |
 | `/qa-quarto [LectureN]` | Adversarial Quarto vs Beamer QA |
 | `/slide-excellence [file]` | Combined multi-agent review |
 | `/translate-to-quarto [file]` | Beamer → Quarto translation |
@@ -92,23 +101,29 @@ python scripts/quality_score.py Quarto/file.qmd
 | `/research-ideation [topic]` | Research questions + strategies |
 | `/interview-me [topic]` | Interactive research interview |
 | `/review-paper [file]` | Manuscript review |
-| `/data-analysis [dataset]` | End-to-end R analysis |
+| `/data-analysis [dataset]` | End-to-end Python analysis |
+| `/deploy-api` | Deploy FastAPI backend to GPU |
+| `/validate-backtest` | Check backtesting for look-ahead bias |
+| `/optimize-gpu` | Optimize GPU kernel performance |
 
 ---
 
 <!-- CUSTOMIZE: Replace the example entries below with your own
-     Beamer environments and Quarto CSS classes. These are examples
-     from the original project — delete them and add yours. -->
+     Beamer environments and Quarto CSS classes for FinTech slides. -->
 
 ## Beamer Custom Environments
 
 | Environment       | Effect        | Use Case       |
 |-------------------|---------------|----------------|
-| `[your-env]`      | [Description] | [When to use]  |
+| `keybox` | Gold background box | Key FinTech concepts |
+| `highlightbox` | Gold left-accent box | Important takeaways |
+| `riskbox[Title]` | Red-bordered titled box | Risk warnings and caveats |
+| `mathbox` | Blue-background math box | Financial formulas and derivations |
+| `codebox` | Monospace font box | Python code snippets |
 
-<!-- Example entries (delete and replace with yours):
-| `keybox` | Gold background box | Key points |
-| `highlightbox` | Gold left-accent box | Highlights |
+<!-- Examples:
+| `keybox` | Gold background box | Key FinTech concepts |
+| `highlightbox` | Gold left-accent box | Important takeaways |
 | `definitionbox[Title]` | Blue-bordered titled box | Formal definitions |
 -->
 
@@ -116,12 +131,11 @@ python scripts/quality_score.py Quarto/file.qmd
 
 | Class              | Effect        | Use Case       |
 |--------------------|---------------|----------------|
-| `[.your-class]`    | [Description] | [When to use]  |
-
-<!-- Example entries (delete and replace with yours):
 | `.smaller` | 85% font | Dense content slides |
-| `.positive` | Green bold | Good annotations |
--->
+| `.positive` | Green bold | Positive financial outcomes |
+| `.negative` | Red bold | Risk warnings, losses |
+| `.tech` | Blue monospace | Technical terms, code |
+| `.formula` | Display math style | Financial formulas |
 
 ---
 
@@ -129,5 +143,9 @@ python scripts/quality_score.py Quarto/file.qmd
 
 | Lecture | Beamer | Quarto | Key Content |
 |---------|--------|--------|-------------|
-| 1: [Topic] | `Lecture01_Topic.tex` | `Lecture1_Topic.qmd` | [Brief description] |
-| 2: [Topic] | `Lecture02_Topic.tex` | -- | [Brief description] |
+| 1: Introduction to FinTech | `Lecture01_Intro.tex` | `Lecture1_Intro.qmd` | AI in finance, course overview, LLM applications |
+| 2: Financial Data & APIs | `Lecture02_Data.tex` | `Lecture2_Data.qmd` | Data sources, preprocessing, feature engineering |
+| 3: ML for Finance | `Lecture03_ML.tex` | `Lecture3_ML.qmd` | Supervised learning, time series, backtesting |
+| 4: Risk Modeling | `Lecture04_Risk.tex` | `Lecture4_Risk.qmd` | VaR, CVaR, portfolio optimization |
+| 5: Algorithmic Trading | `Lecture05_Trading.tex` | `Lecture5_Trading.qmd` | Trading strategies, execution, evaluation |
+| 6: NLP for FinTech | `Lecture06_NLP.tex` | `Lecture6_NLP.qmd` | Sentiment analysis, LLM RAG, financial QA |

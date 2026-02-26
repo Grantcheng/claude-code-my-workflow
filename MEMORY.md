@@ -70,3 +70,15 @@ When a mistake is corrected, append a `[LEARN:category]` entry below.
 [LEARN:meta] Dogfooding principles must be enforced: plan-first, spec-then-plan, quality gates, session logs → we follow our own guide.
 
 [LEARN:meta] Template development work (building infrastructure, docs) doesn't create session logs in quality_reports/ → those are for user work (slides, analysis), not meta-work. Keeps template clean for users who fork.
+
+## FinTech Patterns
+
+[LEARN:fintech] Python is primary language for FinTech workflows (analytics, FastAPI backend, GPU training). R code conventions and r-reviewer agent should be removed when adapting from econometrics workflow.
+
+[LEARN:fintech] FinTech knowledge base must include: notation registry (returns, volatility, VaR), symbol reference (ML and finance), common pitfalls (look-ahead bias, data leakage, survivorship bias), Python code issues (GPU memory, time series alignment), and tolerance thresholds (VaR ±1%, Sharpe ±0.05).
+
+[LEARN:fintech] Domain reviewer for FinTech requires specialized lenses: Risk Model Assumptions, Derivation Verification, Citation Fidelity, Code-Theory Alignment (Python), and Temporal Logic (look-ahead bias check). Temporal violations are CRITICAL severity.
+
+[LEARN:fintech] Quality gates for FinTech must cover: Python scripts (syntax, security, error handling, GPU efficiency), FastAPI endpoints (validation, CORS, async), Jupyter notebooks (runnability, pedagogy), time series alignment (exact, no tolerance).
+
+[LEARN:fintech] FinTech curriculum structure: 1-Intro (AI in finance), 2-Data (APIs, preprocessing), 3-ML (supervised learning, time series), 4-Risk (VaR, portfolio optimization), 5-Trading (strategies, backtesting), 6-NLP (sentiment, RAG).

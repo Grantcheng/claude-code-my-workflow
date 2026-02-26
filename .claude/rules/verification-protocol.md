@@ -1,7 +1,10 @@
 ---
 paths:
-  - "Slides/**/*.tex"
+  - "Lectures/**/*.tex"
   - "Quarto/**/*.qmd"
+  - "api/**/*.py"
+  - "models/**/*.py"
+  - "notebooks/**/*.ipynb"
   - "docs/**"
 ---
 
@@ -35,6 +38,24 @@ paths:
 1. Run `Rscript scripts/R/filename.R`
 2. Verify output files (PDF, RDS) were created with non-zero size
 3. Spot-check estimates for reasonable magnitude
+
+## For Python Scripts:
+1. Run `python scripts/filename.py` or `python -m pytest tests/`
+2. Verify output files (CSV, pickle, model weights) were created with non-zero size
+3. Check for GPU memory errors if using CUDA
+4. Spot-check numerical results for reasonable magnitude
+
+## For FastAPI Endpoints:
+1. Start server: `uvicorn api.main:app --reload`
+2. Test endpoints with curl or httpie
+3. Verify response status codes and JSON structure
+4. Check for validation errors on edge cases
+
+## For Jupyter Notebooks:
+1. Run `jupyter nbconvert --execute --to notebook filename.ipynb`
+2. Verify all cells execute without errors
+3. Check output files created (if any)
+4. Verify visualizations render (if applicable)
 
 ## Common Pitfalls:
 - **PDF images in HTML**: Browsers don't render PDFs inline → convert to SVG

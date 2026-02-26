@@ -2,7 +2,8 @@
 paths:
   - "Figures/**/*"
   - "Quarto/**/*.qmd"
-  - "Slides/**/*.tex"
+  - "Lectures/**/*.tex"
+  - "notebooks/**/*.ipynb"
 ---
 
 # Single Source of Truth: Enforcement Protocol

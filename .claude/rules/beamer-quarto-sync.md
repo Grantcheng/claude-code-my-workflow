@@ -1,6 +1,6 @@
 ---
 paths:
-  - "Slides/**/*.tex"
+  - "Lectures/**/*.tex"
   - "Quarto/**/*.qmd"
 ---
 
@@ -14,12 +14,14 @@ When you modify a Beamer `.tex` file, you MUST also apply the equivalent change 
 
 ## Lecture Mapping
 
-<!-- Customize this table for your lectures -->
 | Lecture | Beamer | Quarto |
 |---------|--------|--------|
-| 1 | `Slides/Lecture1_Topic.tex` | `Quarto/Lecture1_Topic.qmd` |
-| 2 | `Slides/Lecture2_Topic.tex` | `Quarto/Lecture2_Topic.qmd` |
-<!-- Add rows as you create lectures -->
+| 1 | `Lectures/Lecture01_Intro.tex` | `Quarto/Lecture1_Intro.qmd` |
+| 2 | `Lectures/Lecture02_Data.tex` | `Quarto/Lecture2_Data.qmd` |
+| 3 | `Lectures/Lecture03_ML.tex` | `Quarto/Lecture3_ML.qmd` |
+| 4 | `Lectures/Lecture04_Risk.tex` | `Quarto/Lecture4_Risk.qmd` |
+| 5 | `Lectures/Lecture05_Trading.tex` | `Quarto/Lecture5_Trading.qmd` |
+| 6 | `Lectures/Lecture06_NLP.tex` | `Quarto/Lecture6_NLP.qmd` |
 
 ## Workflow (Every Time)
 

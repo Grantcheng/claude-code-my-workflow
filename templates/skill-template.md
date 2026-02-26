@@ -105,9 +105,14 @@ description: Generates structured lab notebook entries from experimental notes. 
 description: Validates thesis chapter structure against institutional requirements. Use when user asks to "check chapter format", "validate thesis structure", or when editing thesis .tex or .docx files. Verifies required sections, heading levels, and citation density.
 ```
 
-**Econometric Specification Review (Economics):**
+**Backtesting Validator (FinTech/Quant Finance):**
 ```yaml
-description: Reviews econometric specifications for common errors. Use when user shares regression code in R or Stata, or asks to "check model spec", "review estimation". Validates: standard error clustering, fixed effects structure, missing covariates, and replication commands.
+description: Validates backtesting code for look-ahead bias and proper walk-forward validation. Use when user shares Python/Jupyter code for trading strategies or says "check my backtest", "validate trading strategy", or "test for look-ahead bias". Checks time series alignment, train/test splits, and causal ordering.
+```
+
+**GPU Memory Optimizer (ML/AI):**
+```yaml
+description: Optimizes PyTorch/TensorFlow code for GPU memory efficiency. Use when user says "reduce CUDA memory", "optimize GPU usage", or when reviewing training scripts with out-of-memory errors. Checks gradient checkpointing, batch size scaling, and memory clearing patterns.
 ```
 
 ### Bad Examples (Too Generic)
